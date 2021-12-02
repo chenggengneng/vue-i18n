@@ -8,7 +8,7 @@ export default function extend (Vue: any): void {
     })
   }
 
-  Vue.prototype.$t = function (key: Path, ...values: any, extendKey?: any): TranslateResult {
+  Vue.prototype.$t = function (key: Path, extendKey?: any, ...values: any): TranslateResult {
     const i18n = this.$i18n
     if(typeof extendKey === function){
       key = extendKey()
