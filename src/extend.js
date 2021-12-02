@@ -8,8 +8,11 @@ export default function extend (Vue: any): void {
     })
   }
 
-  Vue.prototype.$t = function (key: Path, ...values: any): TranslateResult {
+  Vue.prototype.$t = function (key: Path, ...values: any, extendKey?: any): TranslateResult {
     const i18n = this.$i18n
+    if(typeof extendKey === function){
+      key = extendKey()
+    }
     return i18n._t(key, i18n.locale, i18n._getMessages(), this, ...values)
   }
 
